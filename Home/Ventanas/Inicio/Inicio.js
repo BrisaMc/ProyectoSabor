@@ -83,8 +83,8 @@ export default function App({navigation}) {
       />
         </View>
         <View style={styles.cuadro}>
-        <TouchableOpacity>
-            <Text style={styles.Titulo}>Descubre </Text>
+        <TouchableOpacity onPress={() =>navigation.navigate('Agenda')}>
+            <Text style={styles.Titulo}>Agenda </Text>
         </TouchableOpacity>
         </View>
         </View>

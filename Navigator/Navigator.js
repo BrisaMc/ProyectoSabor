@@ -9,6 +9,10 @@ import Descubre from '../Home/Ventanas/Descubre/Descubre'
 import Reservacion from  '../Home/Ventanas/Hotel/Reservacion'
 import Hotel from '../Home/Ventanas/Hotel/Hotel'
 import restaurante from '../Home/Ventanas/Restaurantes/restaurante'
+import Agenda from '../Home/Ventanas/Agenda/agenda'
+import calendario from '../Home/Ventanas/Agenda/Calendario/calendario'
+import eventos from '../Home/Ventanas/Agenda/Eventos y cultura/eventos'
+
 const Stack =createStackNavigator()
 export default function Navigator()
 {
@@ -84,7 +88,38 @@ export default function Navigator()
 
                 headerShown:false             
                       }} 
-                                     
+                   
+                      
+            />
+              <Stack.Screen
+            name='Agenda'
+            component={Agenda}
+            options={{
+
+                headerShown:false             
+                      }} 
+                   
+                      
+            />
+               <Stack.Screen
+            name='calendario'
+            component={calendario}
+            options={{
+
+                headerShown:false             
+                      }} 
+                   
+                      
+            />
+               <Stack.Screen
+            name='eventos'
+            component={eventos}
+            options={{
+
+                headerShown:false             
+                      }} 
+                   
+                      
             />
         </Stack.Navigator>
     )
