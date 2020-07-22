@@ -39,6 +39,17 @@ render () {
   return (
       
     <View style={styles.container}>
+      <View style={styles.row}>
+<TouchableOpacity style={styles.leftIconButton} onPress={() =>this.props.navigation.navigate('index')} >
+          <MaterialCommunityIconsIcon
+            name="menu"
+            style={styles.leftIcon}
+          ></MaterialCommunityIconsIcon>
+        </TouchableOpacity>
+<MaterialHeader2 title="Descubre">
+</MaterialHeader2>
+</View> 
+<Text> </Text>
         <View style={styles.imagen}></View>
         <View style={styles.cuadro}>
         
