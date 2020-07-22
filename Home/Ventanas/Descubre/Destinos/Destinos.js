@@ -10,11 +10,8 @@ export default class Destinos extends Component {
   constructor(props) {
 
     super(props);
-
     this.state = {
-      
       dataSource:[]
-
     };
     
     
@@ -54,7 +51,6 @@ render () {
      style={{ width:600,height:200 }}/>
       <Text style={{justifyContent:'center',textAlign:'center',fontSize:20}} >{item.Titulo}</Text>
       <Text style={{textAlign:'justify',fontSize:20}}>{item.Informacion}</Text>
-      
       </View>
       <Text> </Text>
       </View>

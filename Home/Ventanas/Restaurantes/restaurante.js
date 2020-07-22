@@ -89,8 +89,7 @@ render () {
       />
         </View>
         
-        <Text>Estrellas {item.Estrellas}
-        </Text>
+    
             </View>
             <View style={styles.cuadro}>
         <Text style={{fontSize:40,textAlign:'center'}}>{item.Nombre}</Text>
@@ -99,7 +98,6 @@ render () {
         <TouchableOpacity  onPress={() =>this.props.navigation.navigate('Reservacion',{valor})}><Text style={{left:20,width:250,fontSize:30,backgroundColor:'rgb(187, 9, 3)',borderBottomWidth:5}} >Reservar Mesa</Text></TouchableOpacity>
         <TouchableOpacity   onPress={this.Menu}><Text style={{left:500,fontSize:30,backgroundColor:'blue',width:100,borderBottomWidth:5}} >Menu</Text></TouchableOpacity>
         <Text style={{fontSize:15}}>Abierto </Text>
-        <Text>Tel: {valor}</Text>
                
         </View>  
         </View>
