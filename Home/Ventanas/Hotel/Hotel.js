@@ -6,20 +6,33 @@ import EvilIconsIcon from "react-native-vector-icons/EvilIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import {createStackNavigator,StackNavigationProp,} from '@react-navigation/stack'
+import { TextInput } from 'react-native-gesture-handler';
 
 
-export default class Destinos extends Component {
+export default class Destinos extends React.Component {
   constructor(props) {
 
     super(props);
 
     this.state = {
-      
-      dataSource:[]
+      dataSource:[],
+      idHotel:0,
+      Nombre:"",
+      intestrellas:0,
+      Tel:0
     };
   
 }
-
+static navigationOptions = {  
+  title: 'Hotel',  
+  headerStyle: {  
+      backgroundColor: '#f4511e',  
+  },  
+  //headerTintColor: '#0ff',  
+  headerTitleStyle: {  
+      fontWeight: 'bold',  
+  },  
+};  
 componentDidMount(){
   fetch("https://proyectosabor.000webhostapp.com/verHoteles.php")    
   .then(response => response.json())
@@ -32,6 +45,7 @@ componentDidMount(){
   }
  
 render () {
+  const { navigate } = this.props.navigation;
   return (
    
     <View style={styles.container}>
@@ -67,7 +81,11 @@ render () {
         <Text style={{fontSize:20}}>Hotel de {item.Estrellas} Estrellas</Text>
         <Text style={{fontSize:15}}>Dir: {item.Direccion}</Text>
         <Text>Tel: {item.Telefono}</Text>
-                <TouchableOpacity  onPress={() =>this.props.navigation.navigate('Reservacion',item.idHotel)}><Text style={{textAlign:'right',fontSize:30}} >Reservar una habitacion</Text></TouchableOpacity>
+                <TouchableOpacity  onPress={() =>this.props.navigation.navigate('Reservacion', {  
+            idHotel: item.Estrellas,  
+            otherParam: '101',  
+        })  
+    }  ><Text style={{textAlign:'right',fontSize:30}} >Reservar una habitacion</Text></TouchableOpacity>
          
         </View>
         </View>  

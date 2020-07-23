@@ -5,22 +5,31 @@ import  MaterialHeader2 from "../../DiseñoDinamico/MaterialHeader2"
 import EvilIconsIcon from "react-native-vector-icons/EvilIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
-import {createStackNavigator} from '@react-navigation/stack'
-import { NavigationState } from '@react-navigation/native';
-import Restaurante from '../Restaurantes/restaurante'
-export default class Destinos extends  React.Component {
+import {createStackNavigator,StackNavigationProp,} from '@react-navigation/stack'
+import { TextInput } from 'react-native-gesture-handler';
+
+
+export default class Destinos extends React.Component {
   constructor(props) {
 
     super(props);
 
     this.state = {
-      
-      dataSource:[],      
-       
+      dataSource:[],
+      idHotel:0
     };
   
 }
-
+static navigationOptions = {  
+  title: 'Destinos',  
+  headerStyle: {  
+      backgroundColor: '#f4511e',  
+  },  
+  //headerTintColor: '#0ff',  
+  headerTitleStyle: {  
+      fontWeight: 'bold',  
+  },  
+};  
 componentDidMount(){
   fetch("https://proyectosabor.000webhostapp.com/verHoteles.php")    
   .then(response => response.json())
@@ -32,14 +41,15 @@ componentDidMount(){
   .catch(error=>console.log(error)) //to catch the errors if any
   }
  
- 
-    
-
 render () {
+  const user_name = this.props.navigation.getParam('userName', 'NO-User');  
+  const other_param = this.props.
+  navigation.getParam('otherParam', 'some default value');  
   return (
-      
+   
     <View style={styles.container}>
-      <View style={styles.row}>
+        
+<View style={styles.row}>
 <TouchableOpacity style={styles.leftIconButton} onPress={() =>this.props.navigation.navigate('index')} >
           <MaterialCommunityIconsIcon
             name="menu"
@@ -50,23 +60,9 @@ render () {
 </MaterialHeader2>
 </View> 
 <Text> </Text>
-        <View style={styles.imagen}></View>
-        <View style={styles.cuadro}>
-        
-  <Text>Estrellas </Text>
-            <Text>Direccion:</Text>
-            <Text>Telefono</Text>
-  <Text>Boton </Text>
-        </View>
-        <Text>Informacion</Text>
-        <View style={styles.row}>
-        <View style={styles.Izquierda}></View>
-        <View style={styles.Derecha}></View>
-        
-        </View>
-        <View style={styles.ubicacion}></View>
-        
-        
+<Text style={{textAlign:'center',fontSize:60}}>Reservacion</Text>
+
+      
     </View>
     )
   }
