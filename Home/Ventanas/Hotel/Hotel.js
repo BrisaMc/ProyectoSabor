@@ -17,9 +17,10 @@ export default class Destinos extends React.Component {
     this.state = {
       dataSource:[],
       idHotel:0,
-      Nombre:"",
-      intestrellas:0,
-      Tel:0
+      nombrehotel:"",
+      estrellaHotel:"",
+      Direcionhotel:"",
+      TelefonoHotel:"" 
     };
   
 }
@@ -82,8 +83,11 @@ render () {
         <Text style={{fontSize:15}}>Dir: {item.Direccion}</Text>
         <Text>Tel: {item.Telefono}</Text>
                 <TouchableOpacity  onPress={() =>this.props.navigation.navigate('Reservacion', {  
-            idHotel: item.Estrellas,  
-            otherParam: '101',  
+            idHotel: item.idHoteles,
+            nombrehotel:item.Nombre,
+            estrellaHotel:item.Estrellas,
+            Direcionhotel:item.Direccion,
+            TelefonoHotel:item.Telefono 
         })  
     }  ><Text style={{textAlign:'right',fontSize:30}} >Reservar una habitacion</Text></TouchableOpacity>
          

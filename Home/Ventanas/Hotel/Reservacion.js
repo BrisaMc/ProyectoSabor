@@ -16,7 +16,6 @@ export default class Destinos extends React.Component {
 
     this.state = {
       dataSource:[],
-      idHotel:0
     };
   
 }
@@ -42,9 +41,11 @@ componentDidMount(){
   }
  
 render () {
-  const user_name = this.props.navigation.getParam('userName', 'NO-User');  
-  const other_param = this.props.
-  navigation.getParam('otherParam', 'some default value');  
+  const id_Hotel = this.props.route.params.idHotel
+  const nombre_hotel = this.props.route.params.nombrehotel
+  const estrella_Hotel = this.props.route.params.estrellaHotel
+  const Direcion_hotel = this.props.route.params.Direcionhotel
+  const Telefono_Hotel = this.props.route.params.TelefonoHotel
   return (
    
     <View style={styles.container}>
@@ -61,7 +62,9 @@ render () {
 </View> 
 <Text> </Text>
 <Text style={{textAlign:'center',fontSize:60}}>Reservacion</Text>
-
+<Text >User Name: {JSON.stringify(nombre_hotel)}</Text>  
+<Text >User Name: {JSON.stringify(estrella_Hotel)}</Text>  
+<Text >User Name: {JSON.stringify(Direcion_hotel)}</Text>  
       
     </View>
     )
