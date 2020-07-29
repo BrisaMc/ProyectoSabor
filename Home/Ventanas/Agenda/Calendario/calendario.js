@@ -47,7 +47,28 @@ render () {
 </View> 
 <Text> </Text>
 <Text style={{textAlign:'center',fontSize:60}}>Calendario</Text>
-
+        <Text> </Text>
+        <Text> </Text>
+<View style={styles.row}>      
+        <View style={styles.icono}>
+        <Image
+        style={{width:100,
+            height:100}}
+        source={require('../../../DiseñoDinamico/img/resta.png')}
+      />
+        </View>
+        <View style={styles.cuadro}>
+            <Text style={styles.Titulo}>Recordatorios </Text>
+        </View>
+        </View>
+        <View style={styles.cuadro2}>
+          <Text></Text>
+          <FlatList  data={this.state.dataSource} renderItem={({item}) => 
+      <View style={styles.cuadro}>
+        <Text>Hola : Queremos Recordarte Que El Dia Tu debes de </Text>
+      </View>
+        }/>
+        </View>
 
         
       
@@ -65,10 +86,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,top:30,
     backgroundColor: 'rgba(211, 163, 4, 0.781)',
-  },
+  },  
+  cuadro2:{
+    backgroundColor:'rgba(253, 165, 3, 0.89)',
+    height:100,
+    width:600,
+    top:-80
+},
   cuadro:{
-      backgroundColor:'rgba(253, 165, 3, 0.89)'
-      
+      backgroundColor:'rgba(253, 165, 3, 0.89)',
+      height:100,
+      width:500,
   },Titulo:{
       fontSize:50,
     

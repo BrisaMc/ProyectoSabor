@@ -6,7 +6,7 @@ import EvilIconsIcon from "react-native-vector-icons/EvilIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import {createStackNavigator,StackNavigationProp,} from '@react-navigation/stack'
-import { TextInput } from 'react-native-gesture-handler';
+import { TextInput, ScrollView } from 'react-native-gesture-handler';
 
 
 export default class Destinos extends React.Component {
@@ -49,7 +49,7 @@ render () {
   return (
    
     <View style={styles.container}>
-        
+      <ScrollView> 
 <View style={styles.row}>
 <TouchableOpacity style={styles.leftIconButton} onPress={() =>this.props.navigation.navigate('index')} >
           <MaterialCommunityIconsIcon
@@ -60,12 +60,32 @@ render () {
 <MaterialHeader2 title="Descubre">
 </MaterialHeader2>
 </View> 
-<Text> </Text>
 <Text style={{textAlign:'center',fontSize:60}}>Reservacion</Text>
 <Text >User Name: {JSON.stringify(nombre_hotel)}</Text>  
-<Text >User Name: {JSON.stringify(estrella_Hotel)}</Text>  
-<Text >User Name: {JSON.stringify(Direcion_hotel)}</Text>  
-      
+<View style={styles.cuadro}>
+<Image  
+style={{height:250,width:"100%"}}
+        source={require('../../DiseñoDinamico/img/Hotel.png')}/>
+</View>
+<Text></Text>
+<View style={styles.cuadro}>
+<Text >Hotel De {JSON.stringify(nombre_hotel)} Estrellas</Text>  
+<Text >Direccion: {JSON.stringify(nombre_hotel)}</Text>  
+<Text >Telefono: {JSON.stringify(nombre_hotel)}</Text>  
+<TouchableOpacity  onPress={() =>this.props.navigation.navigate('Reservacion', {  
+        })  
+    }  ><Text style={{textAlign:'right',fontSize:30}} >Reservar una habitacion</Text></TouchableOpacity>
+</View>
+<View style={styles.row}>
+<View style={styles.cuadro}>
+
+</View>
+<View style={styles.cuadro}>
+  
+</View>
+</View>
+<View style={styles.cuadro}></View>
+</ScrollView> 
     </View>
     )
   }
@@ -109,8 +129,7 @@ const styles = StyleSheet.create({
     fontSize: 40,backgroundColor: "rgba(253, 165, 3,0.3)",
   },
   image_imageStyle: {
-    width: 585,
-    height: 196
+    flex:1
   },
   icon: {
     color: "rgba(255,131,0,1)",
