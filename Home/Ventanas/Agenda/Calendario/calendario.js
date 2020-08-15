@@ -21,7 +21,7 @@ export default class Quehacer extends Component {
 }
 
 componentDidMount(){
-  fetch("https://proyectosabor.000webhostapp.com/ver.php")    
+  fetch("https://proyectosabor.000webhostapp.com/verHoteles.php")    
   .then(response => response.json())
   .then((responseJson)=> {
     this.setState({
@@ -54,19 +54,24 @@ render () {
         <Image
         style={{width:100,
             height:100}}
-        source={require('../../../DiseñoDinamico/img/resta.png')}
+            source={{ uri: "https://img.icons8.com/all/500/calendar.png" }}
       />
         </View>
         <View style={styles.cuadro}>
-            <Text style={styles.Titulo}>Recordatorios </Text>
+          <TouchableOpacity onPress={() =>this.props.navigation.navigate('crear')}>
+          <Text style={styles.Titulo}>Crear Recordatorios</Text>
+          </TouchableOpacity>
+            
         </View>
         </View>
         <View style={styles.cuadro2}>
           <Text></Text>
+
           <FlatList  data={this.state.dataSource} renderItem={({item}) => 
       <View style={styles.cuadro}>
-        <Text>Hola : Queremos Recordarte Que El Dia Tu debes de </Text>
-      </View>
+
+        <Text style={{fontSize:20}}><Text style={{fontSize:40}}>!!Hola!!</Text> : Brisa  Queremos Recordarte Que El Dia 26 de julio  Tu debes de bañarte  {item.dora}</Text>
+      </View>   
         }/>
         </View>
 
@@ -98,7 +103,7 @@ const styles = StyleSheet.create({
       height:100,
       width:500,
   },Titulo:{
-      fontSize:50,
+      fontSize:40,
     
   },row:{
       flexDirection:'row'
@@ -121,7 +126,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: "rgba(255,131,0,1)",
-    fontSize: 61,
+    fontSize: 50,
     height: 66,
     width: 590,
     marginTop: 51,

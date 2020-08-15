@@ -20,7 +20,8 @@ export default class Destinos extends React.Component {
       nombrehotel:"",
       estrellaHotel:"",
       Direcionhotel:"",
-      TelefonoHotel:"" 
+      TelefonoHotel:"",
+      i:0 
     };
   
 }
@@ -70,21 +71,21 @@ render () {
         <View style={styles.row}>
             <View style={styles.Izquierda}>
             <Image
-        style={{width:200,
+        style={{width:200,  
             height:180}}
-        source={require('../../DiseñoDinamico/img/Hotel.png')}
+            source={{ uri: "https://proyectosabor.000webhostapp.com/img/img1.jpg" }}
       />
         <Text>Estrellas {item.Estrellas}
         </Text>
             </View>
             <View style={styles.Derecha}>
-        <Text style={{fontSize:40}}>{item.Nombre}</Text>
-        <Text style={{fontSize:20}}>Hotel de {item.Estrellas} Estrellas</Text>
+        <Text style={{fontSize:40}}>{item.Hotel}</Text>
+        <Text style={{fontSize:20}}>Hotel de 5  Estrellas</Text>
         <Text style={{fontSize:15}}>Dir: {item.Direccion}</Text>
         <Text>Tel: {item.Telefono}</Text>
                 <TouchableOpacity  onPress={() =>this.props.navigation.navigate('Reservacion', {  
             idHotel: item.idHoteles,
-            nombrehotel:item.Nombre,
+            nombrehotel:item.Hotel,
             estrellaHotel:item.Estrellas,
             Direcionhotel:item.Direccion,
             TelefonoHotel:item.Telefono 
@@ -115,12 +116,12 @@ const styles = StyleSheet.create({
   },
   Izquierda: {
     width:200,
-    backgroundColor: 'blue',
+    backgroundColor: 'rgb(187, 121, 0)',
    
   },
   Derecha: {
     width:400,
-    backgroundColor: 'red',
+    backgroundColor: 'rgb(187, 121, 0)',
   },
   cuadro:{
       backgroundColor:'rgba(253, 165, 3, 0.89)'

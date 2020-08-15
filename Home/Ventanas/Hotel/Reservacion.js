@@ -61,17 +61,17 @@ render () {
 </MaterialHeader2>
 </View> 
 <Text style={{textAlign:'center',fontSize:60}}>Reservacion</Text>
-<Text >User Name: {JSON.stringify(nombre_hotel)}</Text>  
+<Text style={{fontSize:30,textAlign:'center'}}> {JSON.stringify(nombre_hotel)}</Text>  
 <View style={styles.cuadro}>
 <Image  
 style={{height:250,width:"100%"}}
-        source={require('../../DiseñoDinamico/img/Hotel.png')}/>
+source={{ uri: "https://proyectosabor.000webhostapp.com/img/img1.jpg" }}/>
 </View>
 <Text></Text>
 <View style={styles.cuadro}>
-<Text >Hotel De {JSON.stringify(nombre_hotel)} Estrellas</Text>  
-<Text >Direccion: {JSON.stringify(nombre_hotel)}</Text>  
-<Text >Telefono: {JSON.stringify(nombre_hotel)}</Text>  
+<Text style={{fontSize:20,}} >Hotel De  <Text style={{fontSize:20,color:'red'}}>  5 Estrellas</Text> </Text>  
+<Text style={{fontSize:20,}} >Direccion:  <Text style={{fontSize:20,color:'red'}}>Calle adolfo</Text> </Text>  
+<Text style={{fontSize:20,}} >Telefono:  <Text style={{fontSize:20,color:'red'}}>555050055</Text> </Text> 
 <TouchableOpacity  onPress={() =>this.props.navigation.navigate('Reservacion', {  
         })  
     }  ><Text style={{textAlign:'right',fontSize:30}} >Reservar una habitacion</Text></TouchableOpacity>

@@ -11,6 +11,7 @@ import Hotel from '../Home/Ventanas/Hotel/Hotel'
 import restaurante from '../Home/Ventanas/Restaurantes/restaurante'
 import Agenda from '../Home/Ventanas/Agenda/agenda'
 import calendario from '../Home/Ventanas/Agenda/Calendario/calendario'
+import crear from '../Home/Ventanas/Agenda/Calendario/Crearrecordatorio'
 import eventos from '../Home/Ventanas/Agenda/Eventos y cultura/eventos'
 
 const Stack =createStackNavigator()
@@ -121,7 +122,16 @@ export default function Navigator()
                    
                       
             />
-            
+            <Stack.Screen
+            name='crear'
+            component={crear}
+            options={{
+
+                headerShown:false             
+                      }} 
+                   
+                      
+            />
         </Stack.Navigator>
     )
 }

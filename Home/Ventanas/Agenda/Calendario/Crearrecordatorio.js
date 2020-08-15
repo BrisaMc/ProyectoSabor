@@ -5,6 +5,7 @@ import  MaterialHeader2 from "../../../DiseñoDinamico/MaterialHeader2"
 import EvilIconsIcon from "react-native-vector-icons/EvilIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import { TextInput } from 'react-native-gesture-handler';
 
 export default class Quehacer extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class Quehacer extends Component {
 }
 
 componentDidMount(){
-  fetch("https://proyectosabor.000webhostapp.com/verHoteles.php")    
+  fetch("https://proyectosabor.000webhostapp.com/ver.php")    
   .then(response => response.json())
   .then((responseJson)=> {
     this.setState({
@@ -32,6 +33,7 @@ componentDidMount(){
   }
  
 render () {
+  const { navigation } = this.props;  
   return (
     <View style={styles.container}>
 <View style={styles.row}>
@@ -45,20 +47,33 @@ render () {
 </MaterialHeader2>
 </View> 
 <Text> </Text>
-<Text style={{textAlign:'center',fontSize:60}}>Eventos</Text>
-
-<FlatList  data={this.state.dataSource} renderItem={({item}) => 
-      <View>
+<Text style={{textAlign:'center',fontSize:60}}>Calendario</Text>
+        <Text> </Text>
+        <Text> </Text>
+<View style={styles.row}>      
+        <View style={styles.icono}>
+        <Image
+        style={{width:100,
+            height:100}}
+            source={{ uri: "https://img.icons8.com/all/500/calendar.png" }}
+      />
+        </View>
         <View style={styles.cuadro}>
-        <Image source={{ uri: "https://proyectosabor.000webhostapp.com/img/img1.jpg" }} 
-     style={{ width:600,height:200 }}/>
-      <Text style={{justifyContent:'center',textAlign:'center',fontSize:20}} >{item.Hotel}</Text>
-      <Text style={{textAlign:'justify',fontSize:20}}>{item.Informacion}</Text>
-      
-      </View>
-      <Text> </Text>
-      </View>
-    }/>
+          <TouchableOpacity>
+          <Text style={styles.Titulo}> Haz Clic Aqui Para Crear Recordatorios</Text>
+          </TouchableOpacity>
+            
+        </View>
+        </View>
+        <View style={styles.cuadro2}>
+          <Text style={{fontSize:30}}>Fecha</Text>
+          <TextInput style={{fontSize:20,backgroundColor:'rgb(187, 121, 0)'}}></TextInput>
+          <Text style={{fontSize:30}}>Titulo </Text>
+          <TextInput style={{fontSize:20,backgroundColor:'rgb(187, 121, 0)'}}></TextInput>
+          <Text style={{fontSize:30}}>Descripcion</Text>
+          <TextInput style={{fontSize:20,backgroundColor:'rgb(187, 121, 0)'}}></TextInput>
+        </View>
+
         
       
 
@@ -75,12 +90,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,top:30,
     backgroundColor: 'rgba(211, 163, 4, 0.781)',
-  },
+  },  
+  cuadro2:{
+    backgroundColor:'rgba(253, 165, 3, 0.89)',
+    height:300,
+    width:400,
+    top:-80
+},
   cuadro:{
-      backgroundColor:'rgba(253, 165, 3, 0.89)'
-      
+      backgroundColor:'rgba(253, 165, 3, 0.89)',
+      height:100,
+      width:500,
   },Titulo:{
-      fontSize:50,
+      fontSize:30,textAlign:'center'
     
   },row:{
       flexDirection:'row'
@@ -103,7 +125,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: "rgba(255,131,0,1)",
-    fontSize: 61,
+    fontSize: 50,
     height: 66,
     width: 590,
     marginTop: 51,
